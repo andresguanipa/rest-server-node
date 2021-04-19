@@ -22,8 +22,9 @@ SEED de Autenticación
 
 process.env.SEED = process.env.SEED || 'token-SEED'
 
-
-// BASE DE DATOS
+/* ====================
+BASE DE DATOS
+======================= */
 
 let urlDB;
 
@@ -34,3 +35,9 @@ if (process.env.NODE_ENV === 'dev') {
 }
 
 process.env.URLDB = urlDB;
+
+/* ====================
+GOOGLE CLIENT
+======================= */
+
+process.env.CLIENT_ID = process.env.CLIENT_ID || '871033459105-td45p9ldihesqvdv26i16km8flm64lr6.apps.googleusercontent.com';

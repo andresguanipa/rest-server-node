@@ -19,7 +19,7 @@ let verificaToken = (req, res, next) => {
             })
         }
 
-        req.usuario = decoded.usuario;
+        req.usario = decoded.usuario; //Es como si se abriese una sesión nueva, a ese atributo req.usuario se le pasarán todos los datos del decode.usuario
         next();
 
     });
