@@ -24,6 +24,11 @@ var productoSchema = new Schema({
         default: true
     },
 
+    img: {
+        type: String,
+        required: false
+    },
+
     categoria: {
         type: Schema.Types.ObjectId,
         ref: 'Categoria',

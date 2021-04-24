@@ -26,6 +26,33 @@ let verificaToken = (req, res, next) => {
 
 }
 
+/* =======================
+Verifica Token de Imagen
+========================== */
+
+let verificaTokenImg = (req, res, next) => {
+
+    let token = req.query.token;
+
+    jwt.verify(token, process.env.SEED, (err, decoded) => {
+
+        if (err) {
+            return res.status(401).json({
+                ok: false,
+                err: {
+                    message: 'Token no valido'
+                }
+            })
+        }
+
+        req.usuario = decoded.usuario; //Es como si se abriese una sesión nueva, a ese atributo req.usuario se le pasarán todos los datos del decode.usuario
+        next();
+
+    });
+
+
+}
+
 /* =================
 Verifica AdminRole
 ==================== */
@@ -52,5 +79,6 @@ let verificaAdmin_Role = (req, res, next) => {
 
 module.exports = {
     verificaToken,
-    verificaAdmin_Role
+    verificaAdmin_Role,
+    verificaTokenImg
 }
